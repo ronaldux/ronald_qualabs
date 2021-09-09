@@ -5,36 +5,12 @@ import trash_icon from "./assets/trash.svg"
 import add_icon from "./assets/add.svg"
 import bulb_icon from "./assets/bulb.svg"
 import arrow_icon from "./assets/arrow.svg"
-
-const Window = ({ header, children }) => {
-  return (
-    <div className="window">
-      <div className="header">{header}</div>
-      <div className="content">{children}</div>
-    </div>
-  );
-};
-
-const Tab = ({ name, value, checked, onclick }) => {
-  return (
-    <>
-      <input className="tab" id={value} type="radio" name={name} checked={checked} onChange={onclick}/>
-      <label htmlFor={value}>
-        {value}
-      </label>
-    </>
-  );
-};
-
-const User = ({ name }) => {
-  return (
-     <button className="user">
-       {name}
-     </button>
-  );
-};
+import Window from "./componets/Window"
+import Tab from "./componets/Tab"
+import User from "./componets/User"
 
 const App = () => {
+  //cree un custom hook para obtener los usuarios y ordenarlos
   const objectData = useGetObject();
 
   const modules = Object.keys(objectData);
@@ -59,7 +35,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    //cree un custom hook para obtener los usuarios y ordenarlos aca lo imprimo
+    //aca se imprime el objeto
     console.log(objectData, "object");
   }, [objectData]);
 
